@@ -1,6 +1,6 @@
 <h2>Traffic Logs</h2>
 <ul class="heroes">
-    <li *ngFor="let trafficLog of trafficLogs" (click)="onSelect(trafficLog)">
+    <li *ngFor="let trafficLog of trafficLogs" (click)="onSelect(trafficLog) ">
         <span class="badge">{{trafficLog.id}}</span> {{trafficLog.name}}
     </li>
 </ul>
