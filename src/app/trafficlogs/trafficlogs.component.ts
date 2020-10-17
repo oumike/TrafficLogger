@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TrafficLog } from '../trafficlog'
+import { TRAFFICLOGS } from '../mock-trafficlogs'
 
 @Component({
   selector: 'app-trafficlogs',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trafficlogs.component.css']
 })
 export class TrafficlogsComponent implements OnInit {
+
+  trafficLogs = TRAFFICLOGS
 
   constructor() { }
 
