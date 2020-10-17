@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TrafficLog } from '../trafficlog'
-import { TRAFFICLOGS } from '../mock-trafficlogs'
+import { TrafficlogService } from '../trafficlog.service'
+import { MessageService } from '../message.service'
 
 @Component({
   selector: 'app-trafficlogs',
@@ -9,11 +10,23 @@ import { TRAFFICLOGS } from '../mock-trafficlogs'
 })
 export class TrafficlogsComponent implements OnInit {
 
-  trafficLogs = TRAFFICLOGS
+  trafficLogs: TrafficLog[]
+  selectedTrafficLog: TrafficLog
 
-  constructor() { }
+  constructor(private trafficLogService: TrafficlogService, private messageService: MessageService) { }
 
   ngOnInit(): void {
+    this.getTrafficLogs()
+  }
+
+  onSelect(trafficLog: TrafficLog): void {
+    this.selectedTrafficLog = trafficLog
+    this.messageService.add('TrafficLogComponent: Selected log id=' + trafficLog.id)
+  }
+
+  getTrafficLogs(): void {
+    this.trafficLogService.getTrafficLogs ()
+      .subscribe(trafficLogs => this.trafficLogs = trafficLogs)
   }
 
 }

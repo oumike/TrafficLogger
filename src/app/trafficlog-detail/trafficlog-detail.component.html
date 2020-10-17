@@ -1,0 +1,11 @@
+<div *ngIf="trafficLog">
+
+    <h2>{{trafficLog.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{trafficLog.id}}</div>
+    <div>
+      <label>name:
+        <input [(ngModel)]="trafficLog.name" placeholder="name"/>
+      </label>
+    </div>
+  
+  </div>
